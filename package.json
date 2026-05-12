@@ -1,9 +1,24 @@
 {
-  "name": "zerion-cli",
-  "version": "1.1.0",
-  "description": "Zerion for AI agents and developers: wallet-analysis skill bundle and a JSON-first CLI.",
-  "author": "Zerion",
+  "name": "zerion-ai",
+  "version": "1.2.0-phosphor.0",
+  "description": "Zerion for AI agents and developers: wallet-analysis skill bundle, JSON-first CLI, and a programmatic SDK (Phosphor fork).",
+  "author": "Zerion / Phosphor",
   "type": "module",
+  "main": "./sdk/index.js",
+  "types": "./sdk/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./sdk/index.d.ts",
+      "import": "./sdk/index.js",
+      "default": "./sdk/index.js"
+    },
+    "./sdk": {
+      "types": "./sdk/index.d.ts",
+      "import": "./sdk/index.js",
+      "default": "./sdk/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "bin": {
     "zerion": "./cli/zerion.js"
   },
@@ -13,6 +28,7 @@
     "cli/commands/",
     "cli/utils/",
     "cli/policies/",
+    "sdk/",
     "skills/",
     "plugins/",
     ".agents/",
@@ -42,23 +58,28 @@
     "ai",
     "wallet",
     "openclaw",
-    "cli"
+    "cli",
+    "phosphor",
+    "solana",
+    "usdc"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeriontech/zerion-ai.git"
+    "url": "git+https://github.com/Phosphor-agent/zerion-ai.git"
   },
   "bugs": {
-    "url": "https://github.com/zeriontech/zerion-ai/issues"
+    "url": "https://github.com/Phosphor-agent/zerion-ai/issues"
   },
-  "homepage": "https://github.com/zeriontech/zerion-ai#readme",
+  "homepage": "https://github.com/Phosphor-agent/zerion-ai#readme",
   "license": "MIT",
   "dependencies": {
     "@open-wallet-standard/core": "^1.2.4",
+    "@solana/spl-token": "^0.4.9",
     "@solana/web3.js": "^1.98.4",
     "@x402/evm": "^2.6.0",
     "@x402/fetch": "^2.6.0",
     "@x402/svm": "^2.8.0",
+    "bs58": "^6.0.0",
     "mppx": "^0.6.2",
     "qrcode-terminal": "^0.12.0",
     "viem": "^2.0.0"
